@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    "@babel/plugin-transform-class-properties",
+    "@babel/plugin-transform-object-rest-spread"
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "ie": "11",
+          "edge": "15",
+          "safari": "10",
+          "firefox": "50",
+          "chrome": "49"
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}
