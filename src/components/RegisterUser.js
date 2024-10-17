@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { regUser } from '../api/fetchFromApi';
 import { useNavigate } from 'react-router-dom';
 
+import { useAddUserMutation } from '../api/expenseUserApi';
+
+
 const RegisterUser = () => {
+    const [addedUser] = useAddUserMutation();
+
     const navToLogin = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
@@ -44,6 +49,7 @@ const RegisterUser = () => {
                 console.log(error); // Handle error here        
 
             });
+
         }
 
 

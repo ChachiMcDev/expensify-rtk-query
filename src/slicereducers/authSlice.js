@@ -13,12 +13,20 @@ const authSlice = createSlice({
     name: 'auth',
     initialState: authState,
     reducers: {
-
+        loguserout: (state, action) => {
+            return {
+                ...state,
+                isAuthenticated: !state.isAuthenticated,
+                token: '',
+                userid: ''
+            }
+        },
+        wtf: (state, action) => {
+            console.log('wtf')
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(loginUser.fulfilled, (state, action) => {
-
-
             return {
                 ...state,
                 isAuthenticated: !state.isAuthenticated,

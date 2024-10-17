@@ -1,20 +1,18 @@
 import React from "react";
 import ExpenseForm from './ExpenseForm';
-import { useDispatch } from 'react-redux';
-import expensesSlice from "../slicereducers/expensesSlice";
-import { postExpense } from "../slicereducers/expensesSlice";
-const { addExpense } = expensesSlice.actions
 import { useNavigate } from "react-router-dom";
+import { useAddExpenseMutation } from "../api/getAllExpenses";
+
 
 const AddExpensePage = () => {
-    const dispatch = useDispatch();
+
     const navtoHome = useNavigate();
+    const [addExpense] = useAddExpenseMutation();
     return (
         <div>
             This is from the add expense component
             <ExpenseForm onSubmit={(expense) => {
-                //dispatch(addExpense(expense));
-                dispatch(postExpense(expense));
+                addExpense(expense);
                 navtoHome('/');
             }} />
         </div>

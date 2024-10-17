@@ -1,5 +1,6 @@
 const path = require('path')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { url } = require('inspector');
 
 module.exports = (env) => {
     const { production } = env;
@@ -28,10 +29,23 @@ module.exports = (env) => {
                 use: 'babel-loader',
                 test: /\.js$/,
                 exclude: /node_modules/
-            }, {
+            },
+
+            {
                 //use: ['style-loader', 'css-loader', 'sass-loader'],
                 test: /\.s?css$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+                //use: [MiniCssExtractPlugin.loader, "sass-loader",]
+                use: [{
+                    loader: "style-loader",
+                    options: {
+                        //esModule: false
+                    }
+                }, {
+                    loader: 'css-loader',
+                    options: {
+                        url: false
+                    }
+                }, "sass-loader",]
             }]
         }
 
