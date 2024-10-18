@@ -4,6 +4,7 @@ import numeral from 'numeral';
 import { useGetAllExpensesQuery } from "../api/getAllExpenses";
 import { useSelector } from "react-redux";
 import getVisibleExpenses from '../selectors/expenses'
+import { Link } from 'react-router-dom';
 
 export default (props) => {
     const filts = useSelector(state => state.filters);
@@ -17,7 +18,10 @@ export default (props) => {
         return (
             <div className="page-header">
                 <div className="content-container">
-                    <h1 className="page-header__title">You are viewing {expenses.length} {expensesWord} totalling: {expensestotal}</h1>
+                    <h1 className="page-header__title">Viewing <span>{expenses.length}</span> {expensesWord} totalling: <span>{expensestotal}</span></h1>
+                    <div className="page-header__actions">
+                        <Link className="button" to="/create">Add Expense</Link>
+                    </div>
                 </div>
     
             </div>

@@ -3,8 +3,16 @@
 
 .button {
   background: $green;
-
+  border: none;
+  color: white;
+  display: inline;
   font-weight: bold;
   font-size: 1.8rem;
   padding: $s-size;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.button--link {
+  background: none;
 }
