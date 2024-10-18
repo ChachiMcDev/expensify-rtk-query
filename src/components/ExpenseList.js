@@ -3,7 +3,8 @@ import { connect, useSelector } from 'react-redux';
 import ExpenseListItem from "./ExpenseListItem";
 import getVisibleExpenses from '../selectors/expenses';
 import { useGetAllExpensesQuery } from "../api/getAllExpenses";
-import ExpenseSummary from "./ExpenseSummary";
+
+import { NavLink } from "react-router-dom";
 
 const ExpenseList = () => {
 
@@ -21,8 +22,8 @@ const ExpenseList = () => {
                 <>Loading...</>
             ) : data ? (
                 <>
-                    <ExpenseSummary expenses={data} />
                     <h1>Expenses List</h1>
+                    < NavLink to = "/create" > Create Expense</ NavLink>
                     {getVisibleExpenses(data, filts).map((expense, iny) => (
                         <div key={iny}>
                             <ExpenseListItem {...expense} />

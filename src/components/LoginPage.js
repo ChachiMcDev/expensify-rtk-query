@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { loginUser } from '../slicereducers/authSlice';
-import { fetchExpenses } from '../slicereducers/expensesSlice';
 import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
-import { useGetAllExpensesQuery } from '../api/getAllExpenses';
+
 
 const LoginPage = () => {
     const navToDash = useNavigate();
     const dispatch = useDispatch();
+
 
 
 
@@ -23,11 +23,14 @@ const LoginPage = () => {
             ...formData,
             [name]: value
         });
+        
 
     };
     const handleLogin = () => {
+        console.log(formData)
         if (formData.username === '' || formData.password === '') {
             alert('Please fill in all fields');
+            console.log('argg', formData)
             return;
         }
         dispatch(loginUser(formData)).then((data) => {
@@ -42,6 +45,13 @@ const LoginPage = () => {
 
 
     };
+
+    
+    const handleKeyDown = (e) => {
+        if(e.key === 'Enter'){
+           handleLogin()
+        }
+    }
 
 
 
@@ -58,6 +68,7 @@ const LoginPage = () => {
                                 id="username"
                                 name="username"
                                 onChange={handleChange}
+                                onKeyDown={handleKeyDown}
 
                             />
                         </div>
@@ -68,7 +79,7 @@ const LoginPage = () => {
                                 id="password"
                                 name="password"
                                 onChange={handleChange}
-
+                                onKeyDown={handleKeyDown}
                             />
                         </div>
 

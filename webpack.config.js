@@ -19,7 +19,7 @@ module.exports = (env) => {
             },
             historyApiFallback: true,
             compress: true,
-            port: 9000,
+            port: 9001,
         },
         plugins: [new MiniCssExtractPlugin({
             filename: 'styles.css'
@@ -45,7 +45,13 @@ module.exports = (env) => {
                     options: {
                         url: false
                     }
-                }, "sass-loader",]
+                }, {
+                    loader: 'sass-loader',
+                    options: {
+                    //   data: '@use "styles/styles.scss";',
+                    //   includePaths:[__dirname, 'src']
+                    }
+                },]
             }]
         }
 
