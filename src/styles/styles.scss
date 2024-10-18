@@ -1,7 +1,7 @@
-@import './base/settings';
-@import './base/base';
-@import './components/box-layout';
-@import './components/button';
-@import './components/header';
-@import './components/content_container';
-@import './components/page_header';
+@use './base/_settings' as *;
+@use './base/base';
+@use './components/box-layout';
+@use './components/button';
+@use './components/header';
+@use './components/content_container';
+@use './components/page_header';
