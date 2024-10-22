@@ -1,13 +1,15 @@
 //rem better for accesiblity
-@use 'settings' as *;
+@use "settings" as *;
 
+* {
+  box-sizing: border-box;
+}
 
 html {
   font-size: 62.5%;
 }
 
 body {
-
   font-family: Helvetica, Arial, sans-serif;
   font-size: $m-size;
   color: $dark-grey;
@@ -31,3 +33,12 @@ button:disabled {
   color: green; 
 }
 */
+
+/*
+@media (min-width: $desktop-breakpoint) {
+  .rdrDefinedRangesWrapper,
+  .rdrInputRanges {
+    display: none;
+  }
+}
+  */

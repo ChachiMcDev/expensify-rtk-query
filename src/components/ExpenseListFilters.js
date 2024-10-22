@@ -25,18 +25,21 @@ const ExpenseListFilters = (props) => {
 
   return (
     <div className="content-container">
-      <div>
-        <div>
+      <div className="input-group">
+        <div className="input-group__item">
           <input
+            placeholder="Search Expenses"
             type="text"
+            className="text-input"
             value={filters.text}
             onChange={(e) => {
               dispatch(setTextFilter(e.target.value));
             }}
           />
         </div>
-        <div>
+        <div className="input-group__item">
           <select
+            className="select"
             value={filters.sortBy}
             onChange={(e) => {
               if (e.target.value === "date") {
@@ -50,7 +53,7 @@ const ExpenseListFilters = (props) => {
             <option value="amount">Amount</option>
           </select>
         </div>
-        <div>
+        <div className="input-group__item">
           <DateRangePicker ranges={[selectionRange]} onChange={onDateChange} />
         </div>
       </div>
