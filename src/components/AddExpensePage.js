@@ -13,12 +13,14 @@ const AddExpensePage = () => {
           <h1 className="page-header__title">Add Expense</h1>
         </div>
       </div>
-      <ExpenseForm
-        onSubmit={(expense) => {
-          addExpense(expense);
-          navtoHome("/");
-        }}
-      />
+      <div className="content-container">
+        <ExpenseForm
+          onSubmit={(expense) => {
+            addExpense(expense);
+            navtoHome("/");
+          }}
+        />
+      </div>
     </div>
   );
 };

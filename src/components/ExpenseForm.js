@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import { useSelector } from "react-redux";
@@ -11,6 +11,8 @@ export default (props) => {
   //console.log(id.toString());
   const sendToDashboard = useNavigate();
   const authId = useSelector((state) => state.auth.userid);
+  const { id } = useParams();
+
   const [formVals, setFormVals] = useState(
     props.expense
       ? props.expense
@@ -67,33 +69,35 @@ export default (props) => {
   };
 
   return (
-    <div>
-      {formVals.error && <p>{formVals.error}</p>}
-      <form onSubmit={onFormSubmit}>
-        <input
-          type="text"
-          placeholder="Description"
-          className="text-input"
-          autoFocus
-          value={formVals.description}
-          onChange={onDescriptionChange}
-        />
-        <input
-          type="text"
-          placeholder="Amount"
-          className="text-input"
-          value={formVals.amount}
-          onChange={onAmountChange}
-        />
-        <DatePicker selected={formVals.createdAt} onChange={onDateChange} />
-        <textarea
-          className="textarea"
-          placeholder="Add a note for your expense (optional)"
-          value={formVals.note}
-          onChange={onNoteChange}
-        />
-        <button>Add Expense</button>
-      </form>
-    </div>
+    <form className="form" onSubmit={onFormSubmit}>
+      {formVals.error && <p className="form__error">{formVals.error}</p>}
+      <input
+        type="text"
+        placeholder="Description"
+        className="text-input"
+        autoFocus
+        value={formVals.description}
+        onChange={onDescriptionChange}
+      />
+      <input
+        type="text"
+        placeholder="Amount"
+        className="text-input"
+        value={formVals.amount}
+        onChange={onAmountChange}
+      />
+      <DatePicker selected={formVals.createdAt} onChange={onDateChange} />
+      <textarea
+        className="textarea"
+        placeholder="Add a note for your expense (optional)"
+        value={formVals.note}
+        onChange={onNoteChange}
+      />
+      <div>
+        <button className="button">
+          {id ? "Save Expense" : "Add Expense"}
+        </button>
+      </div>
+    </form>
   );
 };
