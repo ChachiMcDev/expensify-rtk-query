@@ -50,6 +50,11 @@
   font-size: 1.4rem;
 }
 
+.list-item__note {
+  color: green;
+  font-weight: bold;
+}
+
 .list-item__data {
   margin: $s-size 0 0 0;
   @media screen and (min-width: $desktop-breakpoint) {

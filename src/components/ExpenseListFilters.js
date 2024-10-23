@@ -28,6 +28,7 @@ const ExpenseListFilters = (props) => {
       <div className="input-group">
         <div className="input-group__item">
           <input
+            name="search"
             placeholder="Search Expenses"
             type="text"
             className="text-input"
@@ -39,6 +40,7 @@ const ExpenseListFilters = (props) => {
         </div>
         <div className="input-group__item">
           <select
+            name="sort"
             className="select"
             value={filters.sortBy}
             onChange={(e) => {
@@ -49,11 +51,15 @@ const ExpenseListFilters = (props) => {
               }
             }}
           >
-            <option value="date">Date</option>
-            <option value="amount">Amount</option>
+            <option name="dateselect" value="date">
+              Date
+            </option>
+            <option name="amountselect" value="amount">
+              Amount
+            </option>
           </select>
         </div>
-        <div className="input-group__item">
+        <div name="datpicker" className="input-group__item">
           <DateRangePicker ranges={[selectionRange]} onChange={onDateChange} />
         </div>
       </div>

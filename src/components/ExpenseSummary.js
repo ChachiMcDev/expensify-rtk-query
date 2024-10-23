@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 export default (props) => {
   const filts = useSelector((state) => state.filters);
   const getuserId = useSelector((state) => state.auth.userid);
+
   const { data, error, isLoading } = useGetAllExpensesQuery(
     `expenses/${getuserId}`
   );
@@ -23,8 +24,14 @@ export default (props) => {
       <div className="page-header">
         <div className="content-container">
           <h1 className="page-header__title">
-            Viewing <span>{expenses.length}</span> {expensesWord} totalling:{" "}
-            <span>{expensestotal}</span>
+            {expenses.length === 0 ? (
+              "Add Expense to get started"
+            ) : (
+              <div>
+                Viewing <span>{expenses.length}</span> {expensesWord} totalling:{" "}
+                <span>{expensestotal}</span>
+              </div>
+            )}
           </h1>
           <div className="page-header__actions">
             <Link className="button" to="/create">

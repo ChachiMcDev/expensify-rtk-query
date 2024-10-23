@@ -72,6 +72,7 @@ export default (props) => {
     <form className="form" onSubmit={onFormSubmit}>
       {formVals.error && <p className="form__error">{formVals.error}</p>}
       <input
+        name="description"
         type="text"
         placeholder="Description"
         className="text-input"
@@ -80,6 +81,7 @@ export default (props) => {
         onChange={onDescriptionChange}
       />
       <input
+        name="amount"
         type="text"
         placeholder="Amount"
         className="text-input"
@@ -88,6 +90,7 @@ export default (props) => {
       />
       <DatePicker selected={formVals.createdAt} onChange={onDateChange} />
       <textarea
+        name="note"
         className="textarea"
         placeholder="Add a note for your expense (optional)"
         value={formVals.note}

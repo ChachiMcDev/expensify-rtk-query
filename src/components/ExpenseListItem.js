@@ -11,7 +11,15 @@ const ExpenseListItem = ({ _id, description, amount, createdAt, note }) => {
         <span className="list-item__subtitle">
           {moment(createdAt).format("MMMM Do, YYYY")}
         </span>
-        <p>{note ? "Notes: " + note : ""}</p>
+
+        {note ? (
+          <div>
+            <span className="list-item__note">Notes: </span>
+            {note}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <div>
         <h3 className="list-item__data">{numeral(amount).format("$0,0.00")}</h3>
