@@ -18,9 +18,9 @@ const ExpenseList = () => {
         <>Oh no, there was an error</>
       ) : isLoading ? (
         <>Loading...</>
-      ) : data ? (
+      ) : data.length !== 0 ? (
         <div className="content-container">
-          <div>
+          <div className="list-header">
             <div className="show-for-mobile">Expenses</div>
             <div className="show-for-desktop">Expense</div>
             <div className="show-for-desktop">Amount</div>
@@ -32,7 +32,13 @@ const ExpenseList = () => {
             </div>
           ))}
         </div>
-      ) : null}
+      ) : (
+        <div className="content-container">
+          <div className="list-item list-item--message">
+            <span>No Expenses</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 
