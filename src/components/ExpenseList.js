@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import ExpenseListItem from "./ExpenseListItem";
 import getVisibleExpenses from "../selectors/expenses";
 import { useGetAllExpensesQuery } from "../api/getAllExpenses";
@@ -41,26 +41,6 @@ const ExpenseList = () => {
       )}
     </div>
   );
-
-  // return (
-  //     <div>
-  //         <h1>Expenses List</h1>
-  //         {expenses.map((expense, iny) => (
-  //             <div key={iny}>
-  //                 <ExpenseListItem {...expense} />
-  //             </div>
-  //         ))}
-
-  //     </div>
-  // );
 };
 
 export default ExpenseList;
-
-// const mapStateToProps = (state) => {
-//     return {
-//         expenses: getVisibleExpenses(state.expenses, state.filters)
-//     }
-// }
-
-// export default connect(mapStateToProps)(ExpenseList);

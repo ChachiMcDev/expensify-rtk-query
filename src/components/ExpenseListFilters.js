@@ -1,12 +1,12 @@
 import React from "react";
-import { connect, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import filtersSlice from "../slicereducers/filterSlice";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import dayjs from "dayjs";
 
-const ExpenseListFilters = (props) => {
+const ExpenseListFilters = () => {
   const { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } =
     filtersSlice.actions;
   const filters = useSelector((state) => state.filters);
@@ -68,11 +68,3 @@ const ExpenseListFilters = (props) => {
 };
 
 export default ExpenseListFilters;
-
-// const mapStateToProps = (state) => {
-//     return {
-//         filters: state.filters
-//     }
-// }
-
-// export default connect(mapStateToProps)(ExpenseListFilters);

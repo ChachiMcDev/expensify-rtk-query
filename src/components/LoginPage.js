@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../slicereducers/authSlice";
 import { useDispatch } from "react-redux";
@@ -27,7 +27,6 @@ const LoginPage = () => {
     }
     dispatch(loginUser(formData)).then((data) => {
       if (data.payload.isValid) {
-        // dispatch(fetchExpenses(data.payload.userid));
         navToDash("/dashboard");
       } else {
         alert("Invalid credentials");

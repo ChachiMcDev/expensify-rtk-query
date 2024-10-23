@@ -26,4 +26,3 @@ const AddExpensePage = () => {
 };
 
 export default AddExpensePage;
-//export default connect()(AddExpensePage);

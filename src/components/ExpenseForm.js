@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import { useNavigate, useParams } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,7 +7,6 @@ import moment from "moment";
 import { useSelector } from "react-redux";
 
 export default (props) => {
-  //console.log(id.toString());
   const sendToDashboard = useNavigate();
   const authId = useSelector((state) => state.auth.userid);
   const { id } = useParams();
@@ -17,7 +15,6 @@ export default (props) => {
     props.expense
       ? props.expense
       : {
-          //_id: ObjectId,
           userid: authId,
           description: "",
           amount: "",
